@@ -1,0 +1,12 @@
+#!/bin/bash
+#program is for screenshots
+
+
+image=$(date +'%Y-%m-%d_%H-%M-%S')
+
+scrot "/home/limited/Pictures/screenshots/$image.png" -s 
+
+path="/home/limited/Pictures/screenshots/$image.png"
+
+#echoing the path as a uri-list instead of the image itself into xclip after pipe
+echo "file://$path" | xclip -selection clipboard -t text/uri-list
